@@ -1,0 +1,27 @@
+{
+  "name": "auto-deploy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lxlyjss/auto-deploy.git"
+  },
+  "keywords": [
+    "auto-deploy"
+  ],
+  "author": "lxl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lxlyjss/auto-deploy/issues"
+  },
+  "homepage": "https://github.com/lxlyjss/auto-deploy#readme",
+  "devDependencies": {
+    "child_process": "^1.0.2",
+    "github-webhook-handler": "^1.0.0",
+    "http": "0.0.0"
+  }
+}
