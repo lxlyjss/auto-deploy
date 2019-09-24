@@ -1,31 +1,20 @@
 /**
- * Create by on 2019-09-24 15:18
+ * Create by on 2019-09-24 15:48
  * author: lxl
  */
-/**
- * Create by on 2019-09-24 15:12
- * author: lxl
- */
-const http = require('http')
-const createHandler = require('github-webhook-handler')
-const spawn = require('child_process').spawn
+var http = require('http')
+var createHandler = require('github-webhook-handler')
 const config = require('./config')
-
-const handler = createHandler({path: '/autodeploy', secret: config.secret})
-
+var handler = createHandler({ path: '/autodeploy', secret: config.secret })
 // 上面的 secret 保持和 GitHub 后台设置的一致
 
 function run_cmd(cmd, args, callback) {
+  var spawn = require('child_process').spawn;
+  var child = spawn(cmd, args);
+  var resp = "";
 
-  const child = spawn(cmd, args)
-  let resp = ""
-
-  child.stdout.on('data', function (buffer) {
-    resp += buffer.toString()
-  })
-  child.stdout.on('end', function () {
-    callback(resp)
-  })
+  child.stdout.on('data', function(buffer) { resp += buffer.toString(); });
+  child.stdout.on('end', function() { callback (resp) });
 }
 
 http.createServer(function (req, res) {
@@ -43,10 +32,8 @@ handler.on('error', function (err) {
 handler.on('push', function (event) {
   console.log('Received a push event for %s to %s',
     event.payload.repository.name,
-    event.payload.ref)
-  run_cmd('sh', ['./deploy.sh'], function (text) {
-    console.log(text)
-  })
+    event.payload.ref);
+  run_cmd('sh', ['./deploy.sh'], function(text){ console.log(text) });
 })
 
 /*

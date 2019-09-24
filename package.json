@@ -4,15 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lxlyjss/auto-deploy.git"
   },
-  "keywords": [
-    "auto-deploy"
-  ],
   "author": "lxl",
   "license": "ISC",
   "bugs": {

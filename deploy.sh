@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
 WEB_PATH='/home/node/article-manager/service/article-manager'
 
 echo "Start deployment"
